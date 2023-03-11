@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dumb Ways to Die Voting Form</title>
+	<style type="text/css">
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			overflow: auto;
+			align-items: center;
+			height: 600px;
+			width: 1000px;
+			margin: 50px auto;
+			background-color: #F5F5F5;
+			border: 1px solid #ccc;
+			padding: 20px;
+		}
+
+		.names, .options {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; /* update align-items property */
+  overflow: auto;
+  scroll-behavior: smooth;
+  height: 400px; /* set a fixed height */
+  width: 400px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  overflow-y: scroll; /* make the list scrollable */
+		}
+
+		.names p, .options p {
+			margin: 5px 0;
+			cursor: move;
+		}
+		.names p:hover, .options p:hover {
+			background-color: #eee;
+		}
+		.options p {
+			cursor: pointer;
+			font-weight: bold;
+		}
+		.names::-webkit-scrollbar, .options::-webkit-scrollbar {
+			width: 10px;
+		}
+		.names::-webkit-scrollbar-thumb, .options::-webkit-scrollbar-thumb {
+			background-color: #ccc;
+			border-radius: 10px;
+		}
+h1 {text-align: center;}
+	</style>
+</head>
+<body>
+<div>
+<h1>Dumb Ways to Die Voting Form</h1>
+	<div class="container">
+<div>
+		<h2>Server Members</h2>
+		<div class="names">
+<p draggable="true">zpaze</p>
+<p draggable="true">mika</p>
+<p draggable="true">nami</p>
+<p draggable="true">tweegs</p>
+<p draggable="true">nad</p>
+<p draggable="true">hashem tabs</p>
+<p draggable="true">reema</p>
+<p draggable="true">nada</p>
+<p draggable="true">hash striker</p>
+<p draggable="true">mallu</p>
+<p draggable="true">aisha</p>
+<p draggable="true">samzn</p>
+<p draggable="true">hamany</p>
+<p draggable="true">azalea</p>
+<p draggable="true">nora</p>
+<p draggable="true">khaled</p>
+<p draggable="true">evorm</p>
+<p draggable="true">wugy</p>
+<p draggable="true">musaed</p>
+<p draggable="true">doobles</p>
+<p draggable="true">moh ksa</p>
+<p draggable="true">pokin</p>
+<p draggable="true">matt</p>
+<p draggable="true">akira</p>
+<p draggable="true">hamer</p>
+<p draggable="true">james</p>
+<p draggable="true">muffin</p>
+<p draggable="true">zalawi</p>
+<p draggable="true">onar</p>
+<p draggable="true">lyden</p>
+<p draggable="true">rayan</p>
+<p draggable="true">baty</p>
+<p draggable="true">merza</p>
+<p draggable="true">aziz ibraheem</p>
+<p draggable="true">s3ud</p>
+<p draggable="true">spud</p>
+<p draggable="true">mneera</p>
+<p draggable="true">kooheji sr</p>
+<p draggable="true">basil</p>
+<p draggable="true">wookie</p>
+<p draggable="true">zayood</p>
+<p draggable="true">ajmi</p>
+<p draggable="true">mody</p>
+<p draggable="true">yaser</p>
+<p draggable="true">aisha kooj</p>
+<p draggable="true">blue</p>
+<p draggable="true">raiden</p>
+</div>
+		</div>
+<div>
+		<h2>Dumb Ways to Die</h2>
+		<div class="options" id="options">
+<p>Ate the silica gel /forbidden pack</p>
+<p>didnt look both ways</p>
+<p>Stairs</p>
+<p>The ghost actually responded</p>
+<p>smothered by kitten (when allergic)</p>
+<p>tried replacing light bulb..</p>
+<p>"i can quit whenever" / wallah im not addicted</p>
+<p>Asked ChatGPT for health advice</p>
+<p>Moshed pit</p>
+<p>big tiddy goth gf</p>
+<p>Pulled the death card (tarot)</p>
+<p>Self-proclaimed chef / tried to cook</p>
+<p>Had too many voices/demon/wolves inside them</p>
+<p>stranded on deserted island</p>
+<p>peanut allergy</p>
+<p>played with matches</p>
+<p>sex led to me to the ER/death by snu snu</p>
+<p>[REDACTED]</p>
+<p>the frozen piss iceicle stalagmite thing</p>
+<p>Forgot to breathe/Being stupid</p>
+<p>She couldn't change him - stockhom synd</p>
+<p>Killed by literal spirals - Junji Ito</p>
+<p>Sniffed a little too much glue</p>
+<p>Had their airpods in</p>
+<p>Something sport related</p>
+<p>Light breeze</p>
+<p>put their faith in crystals</p>
+<p>Hair caught</p>
+<p>Trusted a man</p>
+<p>"explosive" diarrhoea</p>
+<p>something weed</p>
+<p>healer couldnt heal themselves</p>
+<p>passing zpaze the joint on the highway</p>
+</div>
+		</div>
+	</div>
+</div>
+
+<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+     
+      <script>
+     
+    /* Add "https://api.ipify.org?format=json" statement
+               this will communicate with the ipify servers in
+               order to retrieve the IP address $.getJSON will
+               load JSON-encoded data from the server using a
+               GET HTTP request */
+                
+    $.getJSON("https://api.ipify.org?format=json", function(data) {
+         
+        // Setting text of element P with id gfg
+        $("#gfg").html(data.ip);
+    })
+    </script>
+
+	<script type="text/javascript">
+const names = document.querySelectorAll('.names p');
+const options = document.querySelectorAll('.options p');
+let nameToOption = {};
+
+names.forEach(name => {
+  name.addEventListener('dragstart', dragStart);
+  name.addEventListener('dragend', dragEnd);
+});
+
+options.forEach(option => {
+  option.addEventListener('dragover', dragOver);
+  option.addEventListener('dragenter', dragEnter);
+  option.addEventListener('dragleave', dragLeave);
+  option.addEventListener('drop', dragDrop);
+  nameToOption[option.id] = {element: option, names: []};
+});
+
+function dragStart() {
+  this.classList.add('hold');
+  setTimeout(() => this.classList.add('invisible'), 0);
+}
+
+function dragEnd() {
+  this.classList.remove('hold', 'invisible');
+}
+
+function dragOver(e) {
+  e.preventDefault();
+}
+
+function dragEnter(e) {
+  e.preventDefault();
+  this.classList.add('hovered');
+}
+
+function dragLeave() {
+  this.classList.remove('hovered');
+}
+
+function dragDrop() {
+  const name = document.querySelector('.hold');
+  const option = this;
+  option.classList.remove('hovered');
+  // Remove the name from the name list
+  name.parentNode.removeChild(name);
+  // Add the name to the current option
+  const nameOption = document.createElement('p');
+  nameOption.textContent = name.textContent;
+  nameOption.style.fontWeight = "normal";
+  nameOption.addEventListener('click', removeOption);
+  option.insertBefore(nameOption, option.lastElementChild);
+
+  // Update the nameToOption object
+  nameToOption[name.textContent] = option.textContent.replace(name.textContent,'');
+
+  // Display the updated nameToOption object in the console
+  console.log(nameToOption);
+}
+
+function removeOption() {
+  const name = this.textContent;
+  const optionId = this.parentNode.id;
+  const option = nameToOption[optionId];
+  // Remove the name from the option
+  this.parentNode.removeChild(this);
+    // Remove the name from the names array of the corresponding option
+    const index = option.names.indexOf(name);
+    if (index > -1) {
+      option.names.splice(index, 1);
+    }
+  // Add the name back to the name list
+  const nameElement = document.createElement('p');
+  nameElement.textContent = name;
+  nameElement.setAttribute('draggable', 'true');
+  nameElement.addEventListener('dragstart', dragStart);
+  nameElement.addEventListener('dragend', dragEnd);
+  const namesList = document.querySelector('.names');
+  namesList.appendChild(nameElement);
+  
+  // Remove the mapping of the name to the option object
+  delete nameToOption[name];
+}
+
+</script>
+</body>
+</html>
