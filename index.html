@@ -42,6 +42,11 @@
 			cursor: pointer;
 			font-weight: bold;
 		}
+    .submit {
+    position: absolute;
+    left: 730px;
+    top: 700px;
+    }
 		.names::-webkit-scrollbar, .options::-webkit-scrollbar {
 			width: 10px;
 		}
@@ -53,6 +58,14 @@ h1 {text-align: center;}
 	</style>
 </head>
 <body>
+<div id="contact-form">
+    <form action="https://formspree.io/f/mwkjqony" method="POST">
+    <input type="hidden" name="_subject" value= "Discord Form Response"/>
+    <input id = "resultsobject" type="hidden" name="_results" value= ''/>
+    <button class="submit">Submit</button>
+</form>
+</div>
+
 <div>
 <h1>Dumb Ways to Die Voting Form</h1>
 	<div class="container">
@@ -226,6 +239,13 @@ function dragDrop() {
 
   // Display the updated nameToOption object in the console
   console.log(nameToOption);
+  let outputString = '';
+  for (let key in nameToOption) {
+    outputString += `${key} = ${nameToOption[key]}\n`
+  }
+  const sendobject = document.getElementById('resultsobject');
+  sendobject.value = outputString;
+  console.log(outputString);
 }
 
 function removeOption() {
@@ -250,6 +270,13 @@ function removeOption() {
   
   // Remove the mapping of the name to the option object
   delete nameToOption[name];
+  let outputString = '';
+  for (let key in nameToOption) {
+    outputString += `${key} = ${nameToOption[key]}\n`
+  }
+  const sendobject = document.getElementById('resultsobject');
+  sendobject.value = outputString;
+  console.log(outputString);
 }
 
 </script>
