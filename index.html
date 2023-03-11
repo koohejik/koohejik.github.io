@@ -238,14 +238,12 @@ function dragDrop() {
   nameToOption[name.textContent] = option.textContent.replace(name.textContent,'');
 
   // Display the updated nameToOption object in the console
-  console.log(nameToOption);
   let outputString = '';
   for (let key in nameToOption) {
     outputString += `${key} = ${nameToOption[key]}\n`
   }
   const sendobject = document.getElementById('resultsobject');
   sendobject.value = outputString;
-  console.log(outputString);
 }
 
 function removeOption() {
@@ -276,7 +274,6 @@ function removeOption() {
   }
   const sendobject = document.getElementById('resultsobject');
   sendobject.value = outputString;
-  console.log(outputString);
 }
 
 </script>
