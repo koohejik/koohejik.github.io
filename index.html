@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Dumb Ways to Die Voting Form</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
 	<style type="text/css">
 		.container {
 			display: flex;
@@ -9,34 +12,136 @@
 			justify-content: space-around;
 			overflow: auto;
 			align-items: center;
-			height: 600px;
+			height: 500px;
 			width: 1000px;
 			margin: 50px auto;
-			background-color: #F5F5F5;
-			border: 1px solid #ccc;
+      position: absolute;
+      left: 100px;
+      top: 350px;
+			background-color: #d1d1d1;
+			border: 2px solid #ababab;
 			padding: 20px;
 		}
 
-		.names, .options {
+  .description{
+    display: flex;
+		flex-wrap: wrap;
+    font-family: 'Roboto', sans-serif;
+		justify-content: space-around;
+		overflow: auto;
+		align-items: center;
+		height: 220px;
+		width: 1000px;
+		margin: 50px auto;
+		background-color: #d1d1d1;
+		border: 2px solid #ababab;
+		padding: 20px;
+  }
+
+  .descriptionside{
+    display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		overflow: auto;
+		align-items: center;
+    font-size: 13px;
+		height: 500px;
+		width: 300px;
+		margin: 50px auto;
+    position: absolute;
+    left: 1150px;
+    top: 350px;
+		background-color: #d1d1d1;
+		border: 2px solid #ababab;
+		padding: 20px;
+  }
+  
+	.names{
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: flex-start; /* update align-items property */
+  overflow: auto;
+  scroll-behavior: smooth;
+  height: 400px; /* set a fixed height */
+  width: 150px;
+  background-color: #e9e9e9;
+  border: 2px solid #8a8a8a;
+  padding: 10px;
+  overflow-y: scroll; /* make the list scrollable */
+		}
+   
+  .options{ 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  position: static;
+  text-align: center;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start; /* update align-items property */
   overflow: auto;
   scroll-behavior: smooth;
   height: 400px; /* set a fixed height */
-  width: 400px;
-  border: 1px solid #ccc;
+  width: 500px;
+  background-color: #e9e9e9;
+  border: 2px solid #8a8a8a;
   padding: 10px;
   overflow-y: scroll; /* make the list scrollable */
-		}
+	}
 
+  .contact-form{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    align-items: flex-start; /* update align-items property */
+    overflow: auto;
+    scroll-behavior: smooth;
+		height: 200px;
+		width: 1000px;
+		margin: 50px auto;
+    position: absolute;
+    left: 238px;
+    top: 930px;
+		background-color: #d1d1d1;
+		border: 2px solid #ababab;
+		padding: 20px;
+	}
+
+  .namefield1{
+    display: flex;
+    position: absolute;
+    left: 480px;
+    top: 20px;
+  }
+  .namefield2{
+    display: flex;
+    position: absolute;
+    left: 440px;
+    top: 40px;
+  }
+
+  .messagefield1{
+    display: flex;
+    position: absolute;
+    left: 500px;
+    top: 80px;
+  }
+  .messagefield2{
+    display: flex;
+    position: absolute;
+    left: 440px;
+    top: 100px;
+  }
+  
 		.names p, .options p {
 			margin: 5px 0;
-			cursor: move;
+			cursor: grab;
 		}
 		.names p:hover, .options p:hover {
-			background-color: #eee;
+			background-color: #c6c6c6;
 		}
 		.options p {
 			cursor: pointer;
@@ -44,119 +149,234 @@
 		}
     .submit {
     position: absolute;
-    left: 730px;
-    top: 700px;
+    left: 490px;
+    top: 200px;
+    border: 2px solid #808080;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    }
+    .submit:hover {
+     background-color: #aaaaaa;
+     color: white;
     }
 		.names::-webkit-scrollbar, .options::-webkit-scrollbar {
 			width: 10px;
 		}
 		.names::-webkit-scrollbar-thumb, .options::-webkit-scrollbar-thumb {
-			background-color: #ccc;
+			background-color: #8a8a8a;
+			border-radius: 10px;
+    }
+
+    .descriptionside::-webkit-scrollbar {
+			width: 10px;
+		}
+		.descriptionside::-webkit-scrollbar-thumb {
+			background-color: #8a8a8a;
 			border-radius: 10px;
 		}
-h1 {text-align: center;}
+h2 {text-align: center;}
+h4 {text-align: center;}
 	</style>
+
 </head>
-<body>
-<div id="contact-form">
+
+<body style = "background-color: rgb(225, 225, 225)">
+<div class= "contact-form" id="contact-form">
     <form action="https://formspree.io/f/mwkjqony" method="POST">
     <input type="hidden" name="_subject" value= "Discord Form Response"/>
+    <label class = "namefield1" for="full-name">Discord Tag</label>
+    <input class = "namefield2" type="text" name="Name" id="full-name" placeholder="Type your Discord Tag" required="">
+    <label class = "messagefield1" for="message">Other</label>
+    <textarea class = "messagefield2" rows="5" name="message" id="message" placeholder="Type the member name and your death suggestion (i.e. Sami flew too close to the sun)" required=""></textarea>
     <input id = "resultsobject" type="hidden" name="_results" value= ''/>
     <button class="submit">Submit</button>
 </form>
 </div>
+<h2> Dumb Ways to Die Discord Theme </h2>
+<div class= "description" id="description">
+  <pre>
+    For this theme, YOU get to choose how OTHER members are likely to DIE. 
+    Drag their name from the member list onto the death that best fits (including your own name).
+    You can add as many members to a death as you like.
+    You can press on a name to remove it and add it back to the member list.
+    
+    Just to clarify a few things:-
+    
+    1) YOU are voting for OTHER people's roles. You are assigning their role for them by choosing a death most befitting.
+    
+    2) <b>IF YOURE EVER CONFUSED, PLEASE REFER TO THE DESCRIPTION BOX ON THE SIDE. IF YOURE STILL CONFUSED @SAMI</b>
+    
+    3) If you dont like any of the roles or have a better suggestion, PLEASE use OTHER and share your ideas with me <3 
+  </pre>
+</div>
+
+<div class= "descriptionside" id="descriptionside">
+  <h3 style="text-align:center">Some Descriptions</h3>
+  <p>
+    <b>Ate the forbidden fruit aka silica gel packet - </b> 
+    <br>
+    Almost like eating a tide pod, you want to but you shouldnt. Look up silica gel packet if youre still confused. 
+    <br>
+    <br>
+    <b>The ghost actually responded - </b>
+    <br>
+    Fucked around with the paranormal and the paranormal fought back
+    <br>
+    <br>
+    <b>Tried replacing a lightbulb - </b>
+    <br>
+    Not everyone is cut out to be an electrician, not everything is a DIY job, its okay to ask for help 
+    <br>
+    <br>
+    <b> Wallah I'm not addicted - </b>
+    <br>
+    "IF i wanted to, i could quit whenever", and this applies to any form of addiction (not just substance abuse) 
+    <br>
+    <br>
+    <b>Mosh(ed) pit - </b>
+    <br>
+    Went to join the mosh pit and got trampled 
+    <br>
+    <br>
+    <b> Goth Girl Tendencies - </b>
+    <br>
+    Got a big titty goth gf but wasnt ready for what that meant... RIP </3
+    <br>
+    <br>
+    <br>
+    <b> Tried to cook - </b>
+    <br>
+    Medium Rare Chicken
+    <br>
+    <br>
+    <b> Heard too many voices - </b>
+    <br>
+    Had one too many wolves/demons inside them and it pushed them over the edge
+    <br>
+    <br>
+    <b> Death by Snu Snu - </b>
+    <br>
+    Death by pussy/bussy -> Sex led to the ER
+    <br>
+    <br>
+    <b> They couldnt change them - </b>
+    <br>
+    "I could change them!!", no they couldnt and now theyre dead
+    <br>
+    <br>
+    <b> Had their airpods in - </b>
+    <br>
+    Unable to hear danger due to airpods
+    <br>
+    <br>
+    <b> A light breeze - </b>
+    <br>
+    Anything, and I mean anything, can knock them out
+    <br>
+    <br>
+    <b> [REDACTED] - </b>
+    <br>
+    We cant talk about it...
+    <br>
+    <br>
+    <b> Put their faith in crystals - </b>
+    <br>
+    Chakras, crystals, auras, and alternative medicine... need I say more?
+  </p>
+</div>
 
 <div>
-<h1>Dumb Ways to Die Voting Form</h1>
 	<div class="container">
 <div>
-		<h2>Server Members</h2>
+		<h4>Server Members</h4>
 		<div class="names">
-<p draggable="true">zpaze</p>
-<p draggable="true">mika</p>
-<p draggable="true">nami</p>
-<p draggable="true">tweegs</p>
-<p draggable="true">nad</p>
-<p draggable="true">hashem tabs</p>
-<p draggable="true">reema</p>
-<p draggable="true">nada</p>
-<p draggable="true">hash striker</p>
-<p draggable="true">mallu</p>
-<p draggable="true">aisha</p>
-<p draggable="true">samzn</p>
-<p draggable="true">hamany</p>
-<p draggable="true">azalea</p>
-<p draggable="true">nora</p>
-<p draggable="true">khaled</p>
-<p draggable="true">evorm</p>
-<p draggable="true">wugy</p>
-<p draggable="true">musaed</p>
-<p draggable="true">doobles</p>
-<p draggable="true">moh ksa</p>
-<p draggable="true">pokin</p>
-<p draggable="true">matt</p>
-<p draggable="true">akira</p>
-<p draggable="true">hamer</p>
-<p draggable="true">james</p>
-<p draggable="true">muffin</p>
-<p draggable="true">zalawi</p>
-<p draggable="true">onar</p>
-<p draggable="true">lyden</p>
-<p draggable="true">rayan</p>
-<p draggable="true">baty</p>
-<p draggable="true">merza</p>
-<p draggable="true">aziz ibraheem</p>
-<p draggable="true">s3ud</p>
-<p draggable="true">spud</p>
-<p draggable="true">mneera</p>
-<p draggable="true">kooheji sr</p>
-<p draggable="true">basil</p>
-<p draggable="true">wookie</p>
-<p draggable="true">zayood</p>
-<p draggable="true">ajmi</p>
-<p draggable="true">mody</p>
-<p draggable="true">yaser</p>
-<p draggable="true">aisha kooj</p>
-<p draggable="true">blue</p>
-<p draggable="true">raiden</p>
+      <p draggable="true">SAMI</p>
+      <p draggable="true">BREAD/AZIZ</p>
+      <p draggable="true">NOOP/BADER</p>
+      <p draggable="true">PHROG/KOOHEJIK</p>
+      <p draggable="true">CHICHA/FARES</p>
+      <p draggable="true">YAZI</p>
+      <p draggable="true">ZPAZE</p>
+      <p draggable="true">MIKA</p>
+      <p draggable="true">STEPHEGG/NAMI</p>
+      <p draggable="true">TWEEGS</p>
+      <p draggable="true">NAD</p>
+      <p draggable="true">TABS</p>
+      <p draggable="true">REEMA</p>
+      <p draggable="true">HOTOTO/NADA</p>
+      <p draggable="true">HASH STRIKER</p>
+      <p draggable="true">MALLU</p>
+      <p draggable="true">INDOKU/AISHA</p>
+      <p draggable="true">HAMAD/SAMZN</p>
+      <p draggable="true">HAMANY</p>
+      <p draggable="true">NORA</p>
+      <p draggable="true">KHALED</p>
+      <p draggable="true">EVORM/FAHAD</p>
+      <p draggable="true">POKIN</p>
+      <p draggable="true">HAMER</p>
+      <p draggable="true">JAMES</p>
+      <p draggable="true">MUFFIN</p>
+      <p draggable="true">BATY</p>
+      <p draggable="true">ONAR/OMAR</p>
+      <p draggable="true">AZOZ YODA</p>
+      <p draggable="true">S3UD</p>
+      <p draggable="true">SPUD</p>
+      <p draggable="true">MONTIE/MONI</p>
+      <p draggable="true">KOOJ SR</p>
+      <p draggable="true">YUHYUH/BASIL</p>
+      <p draggable="true">WOOKIE</p>
+      <p draggable="true">ZAYOOD</p>
+      <p draggable="true">DR.WACK/AJMI</p>
+      <p draggable="true">PATRICK/YASER</p>
+      <p draggable="true">AISHA KOOJ</p>
+      <p draggable="true">BLUE</p>
+      <p draggable="true">RAIDEN</p>
+      <p draggable="true">AKIRA</p>
+      <p draggable="true">MATT</p>
+      <p draggable="true">PANADOL</p>
+      <p draggable="true">LYDEN</p>
+      <p draggable="true">RAYAN</p>
+      <p draggable="true">ZALAWI</p>
+      <p draggable="true">WUGY</p>
+      <p draggable="true">MODY/MOH</p>
+      <p draggable="true">AZALEA</p>
+      <p draggable="true">DOOBLES</p>
+      <p draggable="true">محمد</p>
 </div>
 		</div>
 <div>
-		<h2>Dumb Ways to Die</h2>
+		<h4>Deaths</h4>
 		<div class="options" id="options">
-<p>Ate the silica gel /forbidden pack</p>
-<p>didnt look both ways</p>
-<p>Stairs</p>
-<p>The ghost actually responded</p>
-<p>smothered by kitten (when allergic)</p>
-<p>tried replacing light bulb..</p>
-<p>"i can quit whenever" / wallah im not addicted</p>
-<p>Asked ChatGPT for health advice</p>
-<p>Moshed pit</p>
-<p>big tiddy goth gf</p>
-<p>Pulled the death card (tarot)</p>
-<p>Self-proclaimed chef / tried to cook</p>
-<p>Had too many voices/demon/wolves inside them</p>
-<p>stranded on deserted island</p>
-<p>peanut allergy</p>
-<p>played with matches</p>
-<p>sex led to me to the ER/death by snu snu</p>
-<p>[REDACTED]</p>
-<p>the frozen piss iceicle stalagmite thing</p>
-<p>Forgot to breathe/Being stupid</p>
-<p>She couldn't change him - stockhom synd</p>
-<p>Killed by literal spirals - Junji Ito</p>
-<p>Sniffed a little too much glue</p>
-<p>Had their airpods in</p>
-<p>Something sport related</p>
-<p>Light breeze</p>
-<p>put their faith in crystals</p>
-<p>Hair caught</p>
-<p>Trusted a man</p>
-<p>"explosive" diarrhoea</p>
-<p>something weed</p>
-<p>healer couldnt heal themselves</p>
-<p>passing zpaze the joint on the highway</p>
+      <p>Forgot to look both ways</p>
+      <p>Fell down the stairs</p>
+      <p>Pressed the GIANT RED BUTTON</p>
+      <p>The ghost actually responded</p>
+      <p>Smothered by kittens (but they're allergic)</p>
+      <p>Tried replacing a light bulb</p>
+      <p>Pulled the wrong tarot card</p>
+      <p>"Wallah im not addicted"</p>
+      <p>Ate the forbidden fruit (the silicia gel package)</p>
+      <p>Mosh(ed) Pit</p>
+      <p>Goth Girl Tendencies</p>
+      <p>Tried to cook</p>
+      <p>Heard too many voices</p>
+      <p>Trusted a man</p>
+      <p>Stranded on a deserted island</p>
+      <p>Played with matches (matchsticks)</p>
+      <p>Death by Snu snu</p>
+      <p>[REDACTED]</p>
+      <p>Forgot to Breathe</p>
+      <p>They couldn't change them</p>
+      <p>Sniffed a little too much glue</p>
+      <p>Had their airpods in</p>
+      <p>Put their faith in crystals</p>
+      <p>Fucked around & found out</p>
+      <p>Killed by spirals</p>
+      <p>Played a sport</p>
+      <p>"Explosive" Diarrhea</p>
+      <p>A light breeze</p>
+      <p>Got their hair caught (in a machine)</p>
+      <p>The intrusive thoughts won</p>
 </div>
 		</div>
 	</div>
@@ -264,7 +484,8 @@ function removeOption() {
   nameElement.addEventListener('dragstart', dragStart);
   nameElement.addEventListener('dragend', dragEnd);
   const namesList = document.querySelector('.names');
-  namesList.appendChild(nameElement);
+  const firstChild = namesList.firstChild;
+  namesList.insertBefore(nameElement, firstChild);
   
   // Remove the mapping of the name to the option object
   delete nameToOption[name];
